@@ -1,0 +1,62 @@
+/*Chapter 2 Excercise 3*/
+#include <iostream>
+#include <cstring>
+#include <string.h>
+
+using namespace std;
+
+int main() {
+	cout << "pick a number from 1 to 100 and let me guess..." << endl;
+	
+	unsigned int guess_time = 0;
+	int computer_guess;
+	int min = 1;
+	int max = 100;
+	computer_guess = 50;
+	char player_answer_1;
+	char player_answer_2;
+	
+	cout << "is it " << computer_guess << "? (y/n)\n";
+	++guess_time;
+	cin.get(player_answer_1);
+	cin.get();
+	if (player_answer_1 == 'y') {
+		cout << "I get your number in " << guess_time << " times\n";
+		return 0;
+	}
+	else if (player_answer_1 == 'n'){
+		;
+	}
+	else {
+		cout << "(1) there is error. please retry.\n\n";
+		return main();
+	}
+
+	while (player_answer_1 == 'n') {
+		cout << "is your number greater than " << computer_guess << "? (y/n)\n";
+		cin.get(player_answer_2);
+		cin.get();
+		if (player_answer_2 == 'y') {
+			min = computer_guess;
+			computer_guess = (min + max) / 2;
+			cout << "is it " << computer_guess << "? (y/n)\n";
+			guess_time++;
+		}
+		else if (player_answer_2 == 'n') {
+			max = computer_guess;
+			computer_guess = (min + max) / 2;
+			cout << "is it " << computer_guess << "? (y/n)\n";
+			guess_time++;
+		}
+		else {
+			cout << "(2) there is error. please retry.\n\n";
+			return main();
+		}
+		cin.get(player_answer_1);
+		cin.get();
+	}	
+	
+	cout << "I get your number in " << guess_time << " times\n";
+
+	return 0;
+}
