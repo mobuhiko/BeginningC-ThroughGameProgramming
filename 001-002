@@ -1,0 +1,19 @@
+/* Chapter 1 Excercise 2*/
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	cout << "enter three game scores" << endl;
+	double score_1, score_2, score_3;
+	cin >> score_1;
+	cin.get();
+	cin >> score_2;
+	cin.get();
+	cin >> score_3;
+	cin.get();
+	cout << "the average game score is " << (score_1 + score_2 + score_3) / 3;
+
+	return 0;
+}
