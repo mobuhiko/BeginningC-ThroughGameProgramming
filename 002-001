@@ -1,0 +1,33 @@
+/* Chapter 2 Exercise 1 */
+#include <iostream>
+using namespace std;
+enum difficulty {easy, normal, hard, hell};
+
+int main() {
+	int choice;
+	cout << "Choose game level" << endl;
+	cout << "1 - Easy    2 - Normal    3 - Hard     4 - Hell" << endl;
+	cin >> choice;
+
+	difficulty player_difficulty;
+	switch (choice)
+	{
+	case 1: 
+		player_difficulty = easy;
+		cout << "you picked easy\n";
+		break;
+	case 2: 
+		player_difficulty = normal;
+		cout << "you pick normal\n";
+		break;
+	case 3: 
+		player_difficulty = hard;
+		cout << "you picked hard\n";
+	case 4: 
+		player_difficulty = hell;
+		cout << "you pick hell\n";
+	default:
+		break;
+	}
+	return 0;
+}
