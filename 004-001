@@ -1,0 +1,67 @@
+#include <iostream> 
+#include <string> 
+#include <cstdlib> 
+#include <ctime>
+#include <vector>
+
+using namespace	std;
+
+int main()
+{
+	vector<string> game_title; // declare vector string
+	vector<string>::iterator my_itertator; // declare a iterator for access any vector
+	vector<string>::const_iterator iter; // declare a iterator for looping
+
+/*give 2 game titles*/
+	game_title.push_back("Super Mario");
+	game_title.push_back("Pokemon");
+
+/*ask user*/
+	cout << "do you want to add or remove a game title?\n";
+	cout << "If you want to add one, enter \"add\"\n";
+	cout << "If you want to remove one, enter \"remove\"\n";
+	cout << "If you want to quit, enter \"quit\"\n";
+	string user_choice = "";
+	getline(cin, user_choice);
+	
+/*excute depending on user's choice*/
+	while (user_choice != "quit")
+	{
+		if (user_choice == "add") {
+			cout << "Enter the game title\n";
+			string new_game_title = "";
+			getline(cin, new_game_title);
+			game_title.insert(game_title.end(),new_game_title );
+		}
+		else if (user_choice == "remove") {
+			my_itertator = game_title.end() - 1;
+			cout << "You removed " << *my_itertator <<"\n";
+			game_title.pop_back();
+		}
+		else if (user_choice == "quit") {
+			break;
+		}
+		else {
+			cout << "please enter again.\n";
+			main();
+		}
+
+		if (game_title.empty()) {
+			cout << "You have nothing now!\n";
+		}
+
+		cout << "do you want to continue to add or remove a game title?\n";
+		cout << "add/remove/quit\n";
+		getline(cin, user_choice);
+	}
+	
+/*Show the result of the game title list*/
+	cout << "You have " << game_title.size() << " games\n";
+	cout << "No.      Title      \n";
+	for (iter = game_title.begin(); iter < game_title.end(); iter++) {
+		cout << iter - game_title.begin() + 1 << "     ";
+		cout << *iter << "\n";
+	}
+
+	return 0;
+}
